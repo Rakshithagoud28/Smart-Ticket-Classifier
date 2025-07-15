@@ -1,0 +1,11 @@
+id,ticket_text,category,urgency,solution
+1,My laptop screen is flickering,Hardware,High,Replace graphics driver and restart
+2,Can't connect to office WiFi,Network,Medium,Reset router or update network settings
+3,Outlook not syncing emails,Software,Medium,Reconfigure account or clear cache
+4,Printer not responding,Hardware,Low,Restart printer and check cable connections
+5,VPN disconnects frequently,Network,High,Change VPN server or reinstall VPN client
+6,Computer is overheating,Hardware,High,Clean fan or apply thermal paste
+7,Unable to install Zoom,Software,Low,Check permissions and retry installation
+8,WiFi icon missing on taskbar,Network,Medium,Enable adapter in device manager
+9,Excel crashes while saving,Software,Medium,Repair Office or update to latest version
+10,Monitor not turning on,Hardware,High,Check power supply and cable
