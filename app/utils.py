@@ -1,17 +1,21 @@
 import pickle
 import faiss
+import numpy as np
 from sentence_transformers import SentenceTransformer
 import pandas as pd
 
+# Load trained models
 with open("models/ticket_classifier.pkl", "rb") as f:
     models = pickle.load(f)
 
 category_model = models["category_model"]
 urgency_model = models["urgency_model"]
 
+# Load embedding model & FAISS index
 embedding_model = SentenceTransformer("all-MiniLM-L6-v2")
 index = faiss.read_index("models/vector_index.faiss")
 
+# Load ticket embeddings and original ticket data
 with open("data/ticket_embeddings.pkl", "rb") as f:
     ticket_data = pickle.load(f)
 
@@ -24,8 +28,13 @@ def classify_ticket(text):
 
 def find_similar_tickets(text, top_k=3):
     vector = embedding_model.encode([text])
-    D, I = index.search(vector, top_k)
-    results = [ticket_data["texts"][i] for i in I[0]]
+    D, I = index.search(np.array(vector).astype("float32"), top_k)
+    results = []
+    for i in I[0]:
+        if i < len(df):
+            issue = df.iloc[i]["ticket_text"]
+            solution = df.iloc[i]["solution"]
+            results.append((issue, solution))
     return results
 
 def get_solution(ticket_text):
