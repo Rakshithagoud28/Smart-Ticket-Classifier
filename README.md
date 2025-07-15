@@ -53,17 +53,23 @@ This Smart Helpdesk system:
 
 
 ---
-
 ## ⚙️ How to Run Locally
 
+```bash
 git clone https://github.com/Rakshithagoud28/Smart-Ticket-Classifier.git
 cd Smart-Ticket-Classifier
+
+# Create virtual environment
 python -m venv venv
-venv\Scripts\activate   # Windows
+
+# Activate the virtual environment (Windows)
+venv\Scripts\activate
+
+# Install dependencies
 pip install -r requirements.txt
-GROQ_API_KEY = "your-groq-api-key"
+
+# Set your Groq API key (replace with your actual key)
+set GROQ_API_KEY=your-groq-api-key
+
+# Run the Streamlit app
 streamlit run app/main.py
-
-
-Built with ❤️ by Rakshitha Goud
-Inspired by the latest AI-powered helpdesk automation trends.
