@@ -9,3 +9,13 @@ id,ticket_text,category,urgency,solution
 8,WiFi icon missing on taskbar,Network,Medium,Enable adapter in device manager
 9,Excel crashes while saving,Software,Medium,Repair Office or update to latest version
 10,Monitor not turning on,Hardware,High,Check power supply and cable
+11,Requesting new mouse,Hardware,Low,Provide replacement mouse
+12,Skype audio not working,Software,Low,Update audio driver and check mic settings
+13,Request to install Photoshop,Software,Low,Install through software center or IT helpdesk
+14,Keyboard typing random characters,Hardware,Medium,Reconnect or replace keyboard
+15,Slow internet during meetings,Network,Medium,Switch to wired connection or restart router
+16,Requesting WiFi password reset,Network,Low,Reset and share new credentials
+17,System taking long to boot,Hardware,Medium,Disable startup apps and check disk
+18,Unable to save Word document,Software,Low,Check storage location and permissions
+19,Teams chat not loading,Software,High,Clear cache and restart Teams
+20,Router lights blinking red,Network,High,Restart modem or contact ISP

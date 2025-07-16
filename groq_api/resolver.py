@@ -1,14 +1,19 @@
-from groq import Groq
-import os
+# groq_api/resolver.py
 
-client = Groq(api_key=os.getenv("GROQ_API_KEY"))
+import os
+from openai import OpenAI
+
+client = OpenAI(
+    base_url="https://api.groq.com/openai/v1",
+    api_key=os.getenv("GROQ_API_KEY")
+)
 
 def get_solution_from_groq(ticket_text):
     response = client.chat.completions.create(
-        model="llama3-8b-8192",  # ✅ Use this for now
+        model="llama3-8b-8192",
         messages=[
-            {"role": "system", "content": "You are an expert IT support engineer."},
-            {"role": "user", "content": f"Suggest a fix for this issue: {ticket_text}"}
+            {"role": "system", "content": "You are an expert IT support assistant."},
+            {"role": "user", "content": f"Suggest a fix for this helpdesk ticket: {ticket_text}"}
         ]
     )
-    return response.choices[0].message.content
+    return response.choices[0].message.content.strip()

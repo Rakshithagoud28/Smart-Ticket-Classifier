@@ -1,8 +1,9 @@
 import pickle
 import faiss
 import numpy as np
-from sentence_transformers import SentenceTransformer
 import pandas as pd
+from sentence_transformers import SentenceTransformer
+from deep_translator import GoogleTranslator  # ✅ Added for translation
 
 # Load trained models
 with open("models/ticket_classifier.pkl", "rb") as f:
@@ -42,3 +43,13 @@ def get_solution(ticket_text):
     if not row.empty:
         return row["solution"].values[0]
     return "Solution not found."
+
+def translate_to_english(text):
+    """
+    Detects and translates the input ticket text to English using Deep Translator.
+    Useful for multi-language support.
+    """
+    try:
+        return GoogleTranslator(source='auto', target='en').translate(text)
+    except Exception as e:
+        return text  # Fallback to original if translation fails
