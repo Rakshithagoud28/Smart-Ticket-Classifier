@@ -1,3 +1,10 @@
+from groq import Groq
+import os
+
+client = Groq(api_key=os.getenv("GROQ_API_KEY"))
+
+
+
 def get_solution_from_groq(ticket_text):
     response = client.chat.completions.create(
         model="llama3-8b-8192",
